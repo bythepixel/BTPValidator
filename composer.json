@@ -1,0 +1,24 @@
+{
+    "name": "bythepixel/validator",
+    "description": "A validator for the BythePixel App Skeleton",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bythepixel\\Validator\\": "src/",
+            "Bytepath\\Shared\\": "lib/bytepath/shared/1.0.6/",
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrew Reddin",
+            "email": "andrew@bytepath.ca"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    }
+}

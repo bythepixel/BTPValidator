@@ -1,0 +1,23 @@
+{
+  "name": "bytepath/shared",
+  "description": "Shared libraries used in all Bytepath projects",
+  "type": "library",
+  "license": "mit",
+  "autoload": {
+    "psr-4": {
+      "Bytepath\\Shared\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Andrew Reddin",
+      "email": "andrew@bytepath.ca"
+    }
+  ],
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0"
+  }
+}
