@@ -101,7 +101,7 @@ This class implements the laravel [Responsible interface](https://laravel-news.c
 
 The ValidationResult object has a method called transform that you can use to mutate the data returned by the ValidationResult object. This class accepts a callback function and returns "self" meaning you can chain this function call directly in your implementation.
 
-We use this function to automatically convert domain data into the [spatie/laravel-data](https://spatie.be/docs/laravel-data/v3/introduction) objects that were implemented in a previous PR. These objects handle converting our data into well defined JSON objects that have typescript definitions for supercharged front end development. Here is an Example of how we might do this
+We use this function to automatically convert domain data into the [spatie/laravel-data](https://spatie.be/docs/laravel-data/v3/introduction) objects. These objects handle converting our data into well defined JSON objects that have typescript definitions for supercharged front end development. Here is an Example of how we might do this
 
 ```php
 // Pulled from the validate() example from earlier in this doc
