@@ -101,7 +101,7 @@ This class implements the laravel [Responsible interface](https://laravel-news.c
 
 The ValidationResult object has a method called transform that you can use to mutate the data returned by the ValidationResult object. This class accepts a callback function and returns "self" meaning you can chain this function call directly in your implementation.
 
-We use this function to automatically convert domain data into the [spatie/laravel-data](https://spatie.be/docs/laravel-data/v3/introduction) objects. These objects handle converting our data into well defined JSON objects that have typescript definitions for supercharged front end development. Here is an Example of how we might do this
+We use this function to automatically convert domain data into [spatie/laravel-data](https://spatie.be/docs/laravel-data/v3/introduction) objects. These objects handle converting our data into well defined JSON objects that have typescript definitions for supercharged front end development. Here is an Example of how we might do this
 
 ```php
 // Pulled from the validate() example from earlier in this doc
@@ -128,7 +128,8 @@ The FailedValidation object does not have any data to transform, so if you call 
 This was done intentionally so that we can return failed results while still retaining the ability to transform successful results.
 
 ```php
-$failed = $validator->rules($rules)->validate($data, $fn);  // Validation failed here returning a FailedValidation object
+// Validation failed here returning a FailedValidation object
+$failed = $validator->rules($rules)->validate($data, $fn); 
 
 $failed->passes(); // False
 
@@ -150,18 +151,21 @@ class SomeService
     {}
 
     /**
-     * Creates a validator, then uses that validator to validate the data 
-     * and create a new user
+     * Creates a validator, then uses that validator to 
+     * validate the data and create a new user
     */
     public function createUser($data): ValidationResult
     {
         return $this->getCreateValidator()->validate($data, function($validatedData) {
+            // This callback will only run if validation is successful
             return App\Models\User::create($validatedData);
         });
     }
 
     /**
-     * Creates a validator by passing it a list of rules required to make a new user
+     * Creates a validator by calling the rules() method.
+     * we pass this method a list of rules required to 
+     * make a new user
     */
     protected function getCreateValidator(): Validator
     {
